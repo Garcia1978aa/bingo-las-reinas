@@ -167,9 +167,7 @@ export default function ProgramacionPage() {
                 <span className="text-white font-bold">22:30 - 23:00</span>
                 <h3 className="text-xl font-bold text-[#d4af37]">Concierto final: "Un bis y nos vamos (mentira)"</h3>
               </div>
-              <p className="text-white">
-                Cierre por todo lo alto con artista invitada. Natalia. Porque sí, porque podemos.
-              </p>
+              <p className="text-white">Cierre por todo lo alto con artista sorpresa invitada.</p>
             </div>
 
             {/* Evento 12 */}
