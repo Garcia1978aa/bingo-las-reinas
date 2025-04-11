@@ -7,17 +7,14 @@ import { useIsMobile } from "@/hooks/use-mobile"
 export default function Home() {
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [videoError, setVideoError] = useState(false)
-  const [showFallback, setShowFallback] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const isMobile = useIsMobile()
 
   // Añadir un timestamp único para evitar problemas de caché
   const timestamp = Date.now()
 
-  // Seleccionar la fuente de video según el dispositivo
-  const videoUrl = isMobile
-    ? `/videos/home-video-mobile.mp4?t=${timestamp}` // Versión más ligera para móviles
-    : `https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%8DDEO%20HOME%20BINGO%20ok-U548WnZgcMIDSGsIDrbg94ZQRiTeZP.webm?t=${timestamp}`
+  // URL directa al Blob Storage de Vercel para el video
+  const videoUrl = `https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%8DDEO%20HOME%20BINGO%20ok-U548WnZgcMIDSGsIDrbg94ZQRiTeZP.webm?t=${timestamp}`
 
   // URL directa al Blob Storage para el logo
   const logoUrl = `https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20BINGO%20%282%29ok-KtOJDuXFzt2QxcLjlwKbCPTnqFYhKA.png?t=${timestamp}`
@@ -41,8 +38,6 @@ export default function Home() {
       const handlePlaying = () => {
         console.log("Video is playing")
         setVideoLoaded(true)
-        // Una vez que el video está reproduciendo, eliminamos el fallback
-        setShowFallback(false)
       }
 
       // Función para manejar errores
@@ -59,32 +54,20 @@ export default function Home() {
       // Intentar cargar el video
       video.load()
 
-      // Establecer un timeout para mostrar el fallback si el video tarda demasiado
-      // Esto es especialmente útil en conexiones móviles lentas
-      const timeoutId = setTimeout(() => {
-        if (!videoLoaded) {
-          console.log("Video loading timeout - showing fallback")
-          setShowFallback(true)
-        }
-      }, 3000) // 3 segundos de timeout
-
-      // Limpiar event listeners y timeout
+      // Limpiar event listeners
       return () => {
         video.removeEventListener("canplay", handleCanPlay)
         video.removeEventListener("playing", handlePlaying)
         video.removeEventListener("error", handleError)
-        clearTimeout(timeoutId)
       }
     }
-  }, [videoLoaded])
+  }, [])
 
-  // Precargar la imagen de fondo para móviles
+  // Añadir logs para depuración
   useEffect(() => {
-    if (isMobile) {
-      const img = new Image()
-      img.src = "/images/fondo-header.jpeg"
-    }
-  }, [isMobile])
+    console.log("Video URL:", videoUrl)
+    console.log("Is Mobile:", isMobile)
+  }, [videoUrl, isMobile])
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -92,20 +75,6 @@ export default function Home() {
       <div className="flex-grow relative bg-black">
         {/* Fondo negro sólido (sin imagen residual) */}
         <div className="absolute inset-0 bg-black"></div>
-
-        {/* Fallback temporal mientras carga el video en móviles */}
-        {(isMobile && !videoLoaded) || showFallback ? (
-          <div className="absolute inset-0">
-            <Image
-              src="/images/fondo-header.jpeg"
-              alt="Fondo"
-              fill
-              style={{ objectFit: "cover", opacity: 0.5 }}
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60"></div>
-          </div>
-        ) : null}
 
         {/* Video con múltiples fuentes y mejor manejo */}
         <video
@@ -120,13 +89,12 @@ export default function Home() {
             opacity: videoLoaded ? 1 : 0,
             transition: "opacity 0.5s ease-in-out",
           }}
-          poster={isMobile ? "/images/fondo-header.jpeg" : undefined}
         >
-          {/* Fuente principal según el dispositivo */}
-          <source src={videoUrl} type={isMobile ? "video/mp4" : "video/webm"} />
-          {/* Fuentes alternativas */}
+          {/* Usar directamente la URL del Blob Storage con timestamp */}
+          <source src={videoUrl} type="video/webm" />
+          {/* Fuentes alternativas con timestamp */}
           <source src={`/videos/home-video.mp4?t=${timestamp}`} type="video/mp4" />
-          <source src={`/videos/home-video-short.mp4?t=${timestamp}`} type="video/mp4" />
+          <source src={`/videos/home-video-mobile.mp4?t=${timestamp}`} type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
 
