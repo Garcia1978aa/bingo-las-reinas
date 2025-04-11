@@ -7,6 +7,7 @@ import { useIsMobile } from "@/hooks/use-mobile"
 export default function Home() {
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [videoError, setVideoError] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
   const isMobile = useIsMobile()
 
@@ -21,6 +22,9 @@ export default function Home() {
 
   // Efecto para manejar la carga del video
   useEffect(() => {
+    // Mostrar el indicador de carga
+    setIsLoading(true)
+
     // Intentar precargar el video
     if (videoRef.current) {
       const video = videoRef.current
@@ -31,6 +35,7 @@ export default function Home() {
         video.play().catch((err) => {
           console.error("Error playing video:", err)
           setVideoError(true)
+          setIsLoading(false)
         })
       }
 
@@ -38,12 +43,14 @@ export default function Home() {
       const handlePlaying = () => {
         console.log("Video is playing")
         setVideoLoaded(true)
+        setIsLoading(false)
       }
 
       // Función para manejar errores
       const handleError = (e: Event) => {
         console.error("Video error:", e)
         setVideoError(true)
+        setIsLoading(false)
       }
 
       // Agregar event listeners
@@ -51,14 +58,23 @@ export default function Home() {
       video.addEventListener("playing", handlePlaying)
       video.addEventListener("error", handleError)
 
+      // Establecer un timeout para mostrar fallback si el video tarda demasiado
+      const loadingTimeout = setTimeout(() => {
+        if (!videoLoaded) {
+          console.log("Video loading timeout")
+          setIsLoading(false)
+        }
+      }, 5000) // 5 segundos de timeout
+
       // Intentar cargar el video
       video.load()
 
-      // Limpiar event listeners
+      // Limpiar event listeners y timeout
       return () => {
         video.removeEventListener("canplay", handleCanPlay)
         video.removeEventListener("playing", handlePlaying)
         video.removeEventListener("error", handleError)
+        clearTimeout(loadingTimeout)
       }
     }
   }, [])
@@ -75,6 +91,33 @@ export default function Home() {
       <div className="flex-grow relative bg-black">
         {/* Fondo negro sólido (sin imagen residual) */}
         <div className="absolute inset-0 bg-black"></div>
+
+        {/* Imagen de fondo mientras carga el video */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#330022] to-black"
+          style={{
+            opacity: videoLoaded ? 0 : 1,
+            transition: "opacity 0.5s ease-in-out",
+          }}
+        >
+          {/* Opcional: Añadir una imagen de fondo estática */}
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <Image
+              src="/images/fondo-header.jpeg"
+              alt="Fondo"
+              fill
+              style={{ objectFit: "cover", opacity: 0.5 }}
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Indicador de carga */}
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="w-16 h-16 border-4 border-[#ff00aa] border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
 
         {/* Video con múltiples fuentes y mejor manejo */}
         <video
