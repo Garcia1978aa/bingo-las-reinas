@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap");
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  border-left: 2px solid #ff00aa;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -0.5rem;
+  top: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: #ff00aa;
+  border-radius: 50%;
+}
+
+.timeline-time {
+  color: #d4af37;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  color: #e0e0e0;
+}
+
+.glamour-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/fondo-header.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.quote-text {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: #ff00aa;
+}

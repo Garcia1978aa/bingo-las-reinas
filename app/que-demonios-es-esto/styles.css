@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap");
+
+.header-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/fondo-header.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.quote-mark::before {
+  content: '"';
+  font-size: 10rem;
+  color: #ff00aa;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1;
+  opacity: 0.3;
+}
+
+.btn-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 0, 170, 0.5);
+}

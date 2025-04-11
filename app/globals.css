@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+
+  /* Variables de colores según el HTML proporcionado */
+  --rosa-neon: #ff00aa;
+  --negro: #111111;
+  --dorado: #d4af37;
+  --blanco: #ffffff;
+  --amarillo-pastel: #fdfd96;
+
+  /* Variables de fuentes */
+  --fuente-titulos: "Bodoni Moda", serif;
+  --fuente-textos: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: var(--negro);
+  color: var(--blanco);
+  font-family: var(--fuente-textos);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: var(--dorado);
+  /* Eliminado el text-shadow */
+}
+
+/* Estilo para botones según el HTML proporcionado */
+button,
+.btn,
+a[class*="rounded-full"],
+a[class*="bg-gradient"],
+a[class*="bg-[#d63400]"],
+a[class*="bg-[#FDFD96]"] {
+  background: linear-gradient(45deg, var(--rosa-neon), var(--dorado));
+  color: var(--negro) !important;
+  font-family: var(--fuente-titulos);
+  border: none !important;
+  font-weight: bold;
+}
+
+/* Clase para botones glamurosos */
+.btn-glam {
+  background: linear-gradient(45deg, var(--rosa-neon), var(--dorado));
+  color: var(--negro);
+  font-family: var(--fuente-titulos);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-glam:hover {
+  transform: translateY(-3px);
+  animation: glitter 1s infinite;
+}
+
+@keyframes glitter {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 10px var(--rosa-neon);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Estilos para el chatbot según el HTML proporcionado */
+.chatbot-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 50;
+}
+
+.chatbot-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Sobrescribir estilos específicos para botones */
+.bg-gradient-to-r {
+  background-image: linear-gradient(45deg, var(--rosa-neon), var(--dorado)) !important;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Efecto de brillo para elementos dorados */
+@keyframes shine {
+  0% {
+    background-position: -100% -100%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+.gold-shine {
+  background: linear-gradient(135deg, var(--dorado) 0%, #f9e076 50%, var(--dorado) 100%);
+  background-size: 200% 200%;
+  animation: shine 3s infinite linear;
+}
+
+/* Actualizar los colores personalizados para BINGO */
+.bingo-orange {
+  color: var(--dorado);
+}
+
+.bingo-gold {
+  color: var(--dorado);
+}
+
+.bg-bingo-orange {
+  background-color: var(--rosa-neon);
+}
+
+.bg-bingo-gold {
+  background-color: var(--dorado);
+}
+
+.border-bingo-orange {
+  border-color: var(--rosa-neon);
+}
+
+.border-bingo-gold {
+  border-color: var(--dorado);
+}
+
+/* Actualizar el gradiente */
+.bg-bingo-gradient {
+  background: linear-gradient(45deg, var(--rosa-neon), var(--dorado));
+}
+
+/* Sobrescribir colores específicos */
+.text-\[\#d63400\],
+.text-\[\#FDFD96\] {
+  color: var(--dorado) !important;
+  /* Eliminado el text-shadow */
+}
+
+.border-\[\#d63400\],
+.border-\[\#FDFD96\] {
+  border-color: var(--dorado) !important;
+}
+
+.hover\:text-\[\#d63400\]:hover,
+.hover\:text-\[\#FDFD96\]:hover {
+  color: var(--dorado) !important;
+}
+
+.hover\:border-\[\#d63400\]:hover,
+.hover\:border-\[\#FDFD96\]:hover {
+  border-color: var(--dorado) !important;
+}
+
+/* Sección de contacto simplificada */
+.contacto-simple {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Nuevas animaciones para el chatbot */
+@keyframes sparkle {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px var(--rosa-neon);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--rosa-neon), 0 0 30px var(--dorado);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--rosa-neon);
+  }
+}
+
+/* Clase para efectos de brillo */
+.sparkle-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  animation: sparkleRotate 4s linear infinite;
+}
+
+@keyframes sparkleRotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Mejoras para móvil */
+@media (max-width: 640px) {
+  .btn-glam {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contacto-simple {
+    padding: 2rem 1rem;
+  }
+
+  .contacto-simple h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contacto-simple p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
