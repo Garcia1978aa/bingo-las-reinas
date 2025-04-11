@@ -9,8 +9,8 @@ export default function AvisoLegalPage() {
         <h2>1. Información General</h2>
         <p>
           En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio
-          Electrónico, le informamos que este sitio web es propiedad de BINGO Las Reinas del Cartón, con domicilio en
-          Calle Gran Vía, 28013 Madrid, y dirección de correo electrónico holi@bingolasreinasdelcarton.com.
+          Electrónico, le informamos que este sitio web es propiedad de PESCAFINO VENTURES SL, con domicilio en CALLE
+          LEGANES 16, FUENLABRADA, 28945 Madrid, y dirección de correo electrónico holi@bingolasreinasdelcarton.com.
         </p>
 
         <h2>2. Objeto</h2>
@@ -29,39 +29,38 @@ export default function AvisoLegalPage() {
         <h2>4. Propiedad Intelectual e Industrial</h2>
         <p>
           Todos los derechos de propiedad intelectual e industrial de este sitio web, así como de sus contenidos, son
-          propiedad de BINGO Las Reinas del Cartón o de terceros que han autorizado su uso. Queda prohibida cualquier
-          forma de reproducción, distribución, comunicación pública, transformación o cualquier otra actividad que pueda
-          realizarse con los contenidos de este sitio web sin la autorización previa y por escrito de BINGO Las Reinas
-          del Cartón.
+          propiedad de PESCAFINO VENTURES SL o de terceros que han autorizado su uso. Queda prohibida cualquier forma de
+          reproducción, distribución, comunicación pública, transformación o cualquier otra actividad que pueda
+          realizarse con los contenidos de este sitio web sin la autorización previa y por escrito de PESCAFINO VENTURES
+          SL.
         </p>
 
         <h2>5. Responsabilidad</h2>
         <p>
-          BINGO Las Reinas del Cartón no se hace responsable de los daños y perjuicios que puedan derivarse de
-          interferencias, omisiones, interrupciones, virus informáticos, averías telefónicas o desconexiones en el
-          funcionamiento operativo de este sistema electrónico, motivadas por causas ajenas a BINGO Las Reinas del
-          Cartón.
+          PESCAFINO VENTURES SL no se hace responsable de los daños y perjuicios que puedan derivarse de interferencias,
+          omisiones, interrupciones, virus informáticos, averías telefónicas o desconexiones en el funcionamiento
+          operativo de este sistema electrónico, motivadas por causas ajenas a PESCAFINO VENTURES SL.
         </p>
 
         <h2>6. Enlaces</h2>
         <p>
           En el caso de que en este sitio web se dispusiesen enlaces o hipervínculos hacia otros sitios de Internet,
-          BINGO Las Reinas del Cartón no ejercerá ningún tipo de control sobre dichos sitios y contenidos. En ningún
-          caso BINGO Las Reinas del Cartón asumirá responsabilidad alguna por los contenidos de algún enlace
-          perteneciente a un sitio web ajeno.
+          PESCAFINO VENTURES SL no ejercerá ningún tipo de control sobre dichos sitios y contenidos. En ningún caso
+          PESCAFINO VENTURES SL asumirá responsabilidad alguna por los contenidos de algún enlace perteneciente a un
+          sitio web ajeno.
         </p>
 
         <h2>7. Modificaciones</h2>
         <p>
-          BINGO Las Reinas del Cartón se reserva el derecho a realizar las modificaciones que considere oportunas, sin
-          aviso previo, en el contenido de su sitio web. Tanto en lo referente a los contenidos del sitio web, como en
-          las condiciones de uso del mismo.
+          PESCAFINO VENTURES SL se reserva el derecho a realizar las modificaciones que considere oportunas, sin aviso
+          previo, en el contenido de su sitio web. Tanto en lo referente a los contenidos del sitio web, como en las
+          condiciones de uso del mismo.
         </p>
 
         <h2>8. Legislación Aplicable y Jurisdicción</h2>
         <p>
-          La relación entre BINGO Las Reinas del Cartón y el usuario se regirá por la normativa española vigente y
-          cualquier controversia se someterá a los Juzgados y tribunales de la ciudad de Madrid.
+          La relación entre PESCAFINO VENTURES SL y el usuario se regirá por la normativa española vigente y cualquier
+          controversia se someterá a los Juzgados y tribunales de la ciudad de Madrid.
         </p>
       </div>
     </div>

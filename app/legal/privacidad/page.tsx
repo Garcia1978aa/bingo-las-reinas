@@ -66,7 +66,8 @@ export default function PrivacidadPage() {
         <h2>9. Contacto</h2>
         <p>
           Si tiene alguna pregunta sobre esta política de privacidad, puede contactarnos en{" "}
-          <span className="break-all">holi@bingolasreinasdelcarton.com</span>.
+          <span className="break-all">holi@bingolasreinasdelcarton.com</span> o en nuestra dirección postal: PESCAFINO
+          VENTURES SL, CALLE LEGANES 16, FUENLABRADA, 28945 Madrid.
         </p>
       </div>
     </div>

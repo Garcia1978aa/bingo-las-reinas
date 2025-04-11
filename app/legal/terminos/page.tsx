@@ -8,9 +8,9 @@ export default function TerminosPage() {
 
         <h2>1. Introducción</h2>
         <p>
-          Bienvenido a BINGO Las Reinas del Cartón. Estos términos y condiciones rigen el uso de nuestro sitio web y la
-          asistencia a nuestros eventos. Al acceder a este sitio web y/o asistir a nuestros eventos, usted acepta estos
-          términos y condiciones en su totalidad.
+          Bienvenido a BINGO Las Reinas del Cartón, un evento organizado por PESCAFINO VENTURES SL. Estos términos y
+          condiciones rigen el uso de nuestro sitio web y la asistencia a nuestros eventos. Al acceder a este sitio web
+          y/o asistir a nuestros eventos, usted acepta estos términos y condiciones en su totalidad.
         </p>
 
         <h2>2. Uso del Sitio Web</h2>
@@ -42,7 +42,7 @@ export default function TerminosPage() {
         <h2>6. Propiedad Intelectual</h2>
         <p>
           Todo el contenido de este sitio web, incluyendo textos, gráficos, logos, imágenes y software, es propiedad de
-          BINGO Las Reinas del Cartón o de sus proveedores de contenido y está protegido por las leyes de propiedad
+          PESCAFINO VENTURES SL o de sus proveedores de contenido y está protegido por las leyes de propiedad
           intelectual.
         </p>
 

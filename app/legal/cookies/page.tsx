@@ -60,7 +60,8 @@ export default function CookiesPage() {
         <h2>7. Contacto</h2>
         <p>
           Si tiene alguna pregunta sobre nuestra política de cookies, puede contactarnos en{" "}
-          <span className="break-all">holi@bingolasreinasdelcarton.com</span>.
+          <span className="break-all">holi@bingolasreinasdelcarton.com</span> o en nuestra dirección postal: PESCAFINO
+          VENTURES SL, CALLE LEGANES 16, FUENLABRADA, 28945 Madrid.
         </p>
       </div>
     </div>
