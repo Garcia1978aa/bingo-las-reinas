@@ -7,14 +7,24 @@ import { useIsMobile } from "@/hooks/use-mobile"
 export default function Home() {
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [videoError, setVideoError] = useState(false)
+  const [isIOS, setIsIOS] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const isMobile = useIsMobile()
 
   // Añadir un timestamp único para evitar problemas de caché
   const timestamp = Date.now()
 
+  // Detectar si es un dispositivo iOS
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+    setIsIOS(/iphone|ipad|ipod/.test(userAgent))
+  }, [])
+
   // URL directa al Blob Storage de Vercel para el video
   const videoUrl = `https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%8DDEO%20HOME%20BINGO%20ok-U548WnZgcMIDSGsIDrbg94ZQRiTeZP.webm?t=${timestamp}`
+
+  // URL del video optimizado para iOS
+  const iosVideoUrl = `https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo%20Home%20Bingo%20Ok-RuKDOnGjNCYPqCCqgLuuhIUR1LX5DW.mp4?t=${timestamp}`
 
   // URL directa al Blob Storage para el logo
   const logoUrl = `https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20BINGO%20%282%29ok-KtOJDuXFzt2QxcLjlwKbCPTnqFYhKA.png?t=${timestamp}`
@@ -61,13 +71,14 @@ export default function Home() {
         video.removeEventListener("error", handleError)
       }
     }
-  }, [])
+  }, [isIOS]) // Añadimos isIOS como dependencia para que se ejecute cuando se detecte iOS
 
   // Añadir logs para depuración
   useEffect(() => {
-    console.log("Video URL:", videoUrl)
+    console.log("Is iOS device:", isIOS)
+    console.log("Video URL for this device:", isIOS ? iosVideoUrl : videoUrl)
     console.log("Is Mobile:", isMobile)
-  }, [videoUrl, isMobile])
+  }, [isIOS, iosVideoUrl, videoUrl, isMobile])
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -90,10 +101,17 @@ export default function Home() {
             transition: "opacity 0.5s ease-in-out",
           }}
         >
-          {/* Usar directamente la URL del Blob Storage con timestamp */}
-          <source src={videoUrl} type="video/webm" />
-          {/* Fuentes alternativas con timestamp */}
-          <source src={`/videos/home-video.mp4?t=${timestamp}`} type="video/mp4" />
+          {/* Priorizar el video de iOS si es un dispositivo iOS */}
+          {isIOS ? (
+            <source src={iosVideoUrl} type="video/mp4" />
+          ) : (
+            <>
+              {/* Usar directamente la URL del Blob Storage con timestamp para no-iOS */}
+              <source src={videoUrl} type="video/webm" />
+              {/* Fuentes alternativas con timestamp */}
+              <source src={`/videos/home-video.mp4?t=${timestamp}`} type="video/mp4" />
+            </>
+          )}
           <source src={`/videos/home-video-mobile.mp4?t=${timestamp}`} type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
